@@ -210,3 +210,34 @@ const pets = [
       imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
     }
   ];
+
+  pets.forEach (card => {  
+    
+  const petDiv = document.querySelector('#pet-cards');
+    
+  petDiv.innerHTML += 
+    `<div class='card' style='width: 18rem;'>
+  <img src=${card.imageUrl} class='card-img-top' alt=${card.name}>
+  <div class='card-body'>
+    <h3 class='card-text'> ${card.name}</h3>
+    <p class='card-text'> Color: ${card.color}</p>
+    <p class='card-text'> Skill: ${card.specialSkill}</p>
+    <p class='card-text'> Type: ${card.type}</p>
+  </div>
+ </div>`
+
+});
+
+
+// 1. Event Listener - Set event listener to body of paragraph
+// 2. If Statment - Create If Statements checking if what is clicked is equal to the buttons.
+// 3. Filter - If the proper button is created, use a filter to show only the selected type.
+
+const buttonClicks = document.querySelector("body");
+
+buttonClicks.addEventListener ("click", () => {
+  if (EventTarget.button.id === "#cat") {
+    return pets.filter(pet => pet.type === "cat")
+  }
+});
+
