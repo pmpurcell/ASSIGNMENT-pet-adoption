@@ -229,5 +229,15 @@ const pets = [
 });
 
 
+// 1. Event Listener - Set event listener to body of paragraph
+// 2. If Statment - Create If Statements checking if what is clicked is equal to the buttons.
+// 3. Filter - If the proper button is created, use a filter to show only the selected type.
 
+const buttonClicks = document.querySelector("body");
+
+buttonClicks.addEventListener ("click", () => {
+  if (EventTarget.button.id === "#cat") {
+    return pets.filter(pet => pet.type === "cat")
+  }
+});
 
