@@ -228,16 +228,45 @@ const pets = [
 
 });
 
+const renderToDom = (divId, textToRender) => {
+  const selectedDiv = document.querySelector(divId);
+  selectedDiv.innerHTML = textToRender;
+}
+
+
+const filterType = (array, animal) => {
+return array.filter(pet => pet.type = animal);
+};
+
 
 // 1. Event Listener - Set event listener to body of paragraph
 // 2. If Statment - Create If Statements checking if what is clicked is equal to the buttons.
-// 3. Filter - If the proper button is created, use a filter to show only the selected type.
+// 3. Filter - If the proper button is clicked, use a filter to show only the selected type.
 
 const buttonClicks = document.querySelector("body");
 
-buttonClicks.addEventListener ("click", () => {
-  if (EventTarget.button.id === "#cat") {
-    return pets.filter(pet => pet.type === "cat")
-  }
+
+
+buttonClicks.addEventListener ("click", (event) => {
+  if (event.target.id === "cat") {
+    console.log("Meow!!")
+    let domString = "";
+    domString = filterType(pets, "cats")
+   renderToDom("#pet-cards", domString)
+  } else if (event.target.id === "dog") {
+    console.log("Woof!")
+    // let domString = "";
+      //  renderToDom(#pet-cards, domString)
+  } else if (event.target.id === "dinos") {
+    console.log("Roar!!")
+    // let domString = "";
+      //  renderToDom(#pet-cards, domString)
+  } else {
+    console.log ("The buttons are not working like I want them to.")
+  };
+
+
 });
+
+
 
