@@ -12,12 +12,16 @@ body {
 }
 
 .card {
-    background-image: linear-gradient(#32a4a8, #a4e8eb );
+    /* background-image: linear-gradient(#32a4a8, #a4e8eb ); */
     border: 4px solid black;
     border-radius: 25%;
     margin: 10px;
     padding: 10px;
     width: 300px;  
+}
+
+.cat-color {
+    background: mediumblue;
 }
 
 .card img {

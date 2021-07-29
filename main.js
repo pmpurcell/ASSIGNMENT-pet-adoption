@@ -233,6 +233,47 @@ const filterType = (array, animal) => {
 return array.filter(petObj => petObj.type === animal);
 };
 
+// Austin's method
+
+const petTypeColor = (petArray) => {
+  petArray.forEach((card) => {
+    // console.log("Why won't this work?");
+    if (card.type === "cat") {
+      card.typeColorBkg = `#4EB6EC`;
+      console.log(card)
+    };
+    if (card.type === "dog") {
+      card.typeColorBkg = "lightblue";
+      console.log(card)
+    };
+    if (card.type === "dino") {
+      card.typeColorBkg = "lightblue";
+      console.log(card)
+    };
+  })
+};
+
+
+// Adding Classlist Styles
+
+// const petTypeColor = (array) => {
+//     console.log("Why won't this work?");
+//     array.forEach((card) => {
+//       let animalText = document.querySelector(`.card`).innerHTML;
+//       console.log(animalText)
+//       if (animalText === "Type: cat"){
+//         console.log("This works!");
+//         animalText.classList.add("cat-color");
+//       };
+//       if (animalText === "Type: dog"){
+//         animalText.classList.add("dog-color")}
+//       if (animalText === "Type: dino"){
+//           animalText.classList.add("dino-color")}
+//      })
+
+//   }; 
+
+
 
 // 1. Event Listener - Set event listener to body of paragraph
 // 2. If Statment - Create If Statements checking if what is clicked is equal to the buttons.
@@ -257,9 +298,10 @@ const handleButtonClicks = (event) => {
 };
 
 
-  const buttonEvents = () => {
+const buttonEvents = () => {
     document.querySelector("#btn-container").addEventListener(`click`, handleButtonClicks);
   }
+
 
 
 const cardBuilder = (petArray) => {  
@@ -272,7 +314,9 @@ const cardBuilder = (petArray) => {
     <h3 class='card-text'> ${card.name}</h3>
     <p class='card-text'> Color: ${card.color}</p>
     <p class='card-text'> Skill: ${card.specialSkill}</p>
-    <p class='card-text'> Type: ${card.type}</p>
+    <div class="type-box" style="color: ${card.typeColorBkg}">
+    <p class='card-text' id="animalType"> Type: ${card.type}</p>
+    </div>
   </div>
  </div>
  `;
@@ -281,10 +325,19 @@ const cardBuilder = (petArray) => {
 renderToDom("#pet-cards", domString)
 }
 
+const whatAreMyCards = (array) => {
+  const myCards = document.querySelector(".card").innerHTML;
+  array.forEach((card) => {
+    console.log(myCards)
+  })
+};
+
 const init = () => {
 buttons();
 buttonEvents();
 cardBuilder(pets);
+petTypeColor(pets);
+whatAreMyCards(pets);
 }
 
 init();
