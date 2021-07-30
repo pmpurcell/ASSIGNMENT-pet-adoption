@@ -220,9 +220,9 @@ const pets = [
   const buttons = () => {
     const domString = `
     <button id= "all">All</button>
-    <button id= "cat">Cats</button>
-    <button id= "dog">Dogs</button>
-    <button id= "dino">Dinos</button>
+    <button class= "cat-tag" id= "cat">Cats</button>
+    <button class= "dog-tag" id= "dog">Dogs</button>
+    <button class= "dino-tag" id= "dino">Dinos</button>
     `
 
     renderToDom("#btn-container", domString);
@@ -233,45 +233,6 @@ const filterType = (array, animal) => {
 return array.filter(petObj => petObj.type === animal);
 };
 
-// Austin's method
-
-const petTypeColor = (petArray) => {
-  petArray.forEach((card) => {
-    // console.log("Why won't this work?");
-    if (card.type === "cat") {
-      card.typeColorBkg = `#4EB6EC`;
-      console.log(card)
-    };
-    if (card.type === "dog") {
-      card.typeColorBkg = "lightblue";
-      console.log(card)
-    };
-    if (card.type === "dino") {
-      card.typeColorBkg = "lightblue";
-      console.log(card)
-    };
-  })
-};
-
-
-// Adding Classlist Styles
-
-// const petTypeColor = (array) => {
-//     console.log("Why won't this work?");
-//     array.forEach((card) => {
-//       let animalText = document.querySelector(`.card`).innerHTML;
-//       console.log(animalText)
-//       if (animalText === "Type: cat"){
-//         console.log("This works!");
-//         animalText.classList.add("cat-color");
-//       };
-//       if (animalText === "Type: dog"){
-//         animalText.classList.add("dog-color")}
-//       if (animalText === "Type: dino"){
-//           animalText.classList.add("dino-color")}
-//      })
-
-//   }; 
 
 
 
@@ -306,21 +267,53 @@ const buttonEvents = () => {
 
 const cardBuilder = (petArray) => {  
   let domString = "";
-  petArray.forEach ((card) => {
-    petTypeColor(pets);      
-  domString += `
+  petArray.forEach ((card) => {     
+   if (card.type=== "cat") {
+    domString +=
+    `
     <div class='card' style='width: 18rem;'>
   <img src=${card.imageUrl} class='card-img-top' alt=${card.name}>
   <div class='card-body'>
-    <h3 class='card-text'> ${card.name}</h3>
+    <h3 class='card-text cat-tag'> ${card.name}</h3>
     <p class='card-text'> Color: ${card.color}</p>
     <p class='card-text'> Skill: ${card.specialSkill}</p>
-    <div class="type-box" style="background-color: ${card.typeColorBkg}">
+    <div class="cat-tag">
     <p class='card-text' id="animalType"> Type: ${card.type}</p>
     </div>
   </div>
  </div>
- `;
+ `
+  } else if (card.type === "dog") {
+    domString +=
+    `
+    <div class='card' style='width: 18rem;'>
+  <img src=${card.imageUrl} class='card-img-top' alt=${card.name}>
+  <div class='card-body'>
+    <h3 class='card-text dog-tag'> ${card.name}</h3>
+    <p class='card-text'> Color: ${card.color}</p>
+    <p class='card-text'> Skill: ${card.specialSkill}</p>
+    <div class="dog-tag">
+    <p class='card-text' id="animalType"> Type: ${card.type}</p>
+    </div>
+  </div>
+ </div>
+ `
+  } else if (card.type === "dino") {
+    domString +=
+    `
+    <div class='card' style='width: 18rem;'>
+  <img src=${card.imageUrl} class='card-img-top' alt=${card.name}>
+  <div class='card-body'>
+    <h3 class='card-text dino-tag'> ${card.name}</h3>
+    <p class='card-text'> Color: ${card.color}</p>
+    <p class='card-text'> Skill: ${card.specialSkill}</p>
+    <div class="dino-tag">
+    <p class='card-text' id="animalType"> Type: ${card.type}</p>
+    </div>
+  </div>
+ </div>
+ `
+  }
 });
 
 renderToDom("#pet-cards", domString)
@@ -338,7 +331,6 @@ const init = () => {
 buttons();
 buttonEvents();
 cardBuilder(pets);
-// petTypeColor(pets);
 whatAreMyCards(pets);
 }
 
