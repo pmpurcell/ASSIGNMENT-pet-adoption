@@ -22,6 +22,13 @@ Delete pets from the list of available pets.
 
 
 Screenshots
+![Screenshot (3)](https://user-images.githubusercontent.com/86082231/127776071-ebc77246-c776-47ca-95aa-477727a52868.png)
+
+![Screenshot (4)](https://user-images.githubusercontent.com/86082231/127776076-747ad753-b37d-494e-8b93-efae85f46e5b.png)
+
+![Screenshot (5)](https://user-images.githubusercontent.com/86082231/127776082-de2ea99f-52b7-4f34-bee9-f1d2f6eaa006.png)
+
+
 
 
 
