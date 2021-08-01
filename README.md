@@ -1,4 +1,4 @@
-# Fantastic Pets!
+# Fantastic Pets! [![Netlify Status](https://api.netlify.com/api/v1/badges/a5848ba2-9b58-420f-84b3-8595f61c9de1/deploy-status)](https://app.netlify.com/sites/pmp-fantastic-pets/deploys)
 
 ### About
 A single page app where users can look at different pets, and sort them as animal types.
