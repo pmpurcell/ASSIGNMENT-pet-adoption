@@ -216,7 +216,7 @@ const pets = [
     selectedDiv.innerHTML = textToRender;
   }
 
-
+// display buttons on the DOM
   const buttons = () => {
     const domString = `
     <button id= "all">All</button>
@@ -229,18 +229,13 @@ const pets = [
   }
 
 
+// Filter function used with event buttons.
 const filterType = (array, animal) => {
 return array.filter(petObj => petObj.type === animal);
 };
 
 
-
-
-// 1. Event Listener - Set event listener to body of paragraph
-// 2. If Statment - Create If Statements checking if what is clicked is equal to the buttons.
-// 3. Filter - If the proper button is clicked, use a filter to show only the selected type.
-
-
+// Button clicks to call filter function.
 const handleButtonClicks = (event) => {
   if (event.target.id === "all") {
     cardBuilder(pets)};
@@ -256,18 +251,36 @@ const handleButtonClicks = (event) => {
   } else {
     console.log ("The buttons are not working like I want them to.")
   };
-};
+  };
+
+
+// function to delete pets from the array.
+const deletePets = (event) => {
+  const targetId = event.target.id;
+  const targetType = event.target.type
+  
+  if (targetType === "button" && event.target.id === targetId){
+    pets.splice(targetId, 1);
+
+  cardBuilder(pets);
+  }
+  
+  };
 
 
 const buttonEvents = () => {
     document.querySelector("#btn-container").addEventListener(`click`, handleButtonClicks);
-  }
+  };
+
+const deleteButton = () => {
+  document.querySelector("body").addEventListener(`click`, deletePets);
+};
 
 
-
+// Build pet cards onto page.
 const cardBuilder = (petArray) => {  
   let domString = "";
-  petArray.forEach ((card) => {     
+  petArray.forEach ((card, i) => {     
    if (card.type=== "cat") {
     domString +=
     `
@@ -280,6 +293,7 @@ const cardBuilder = (petArray) => {
     <div class="cat-tag">
     <p class='card-text' id="animalType"> Type: ${card.type}</p>
     </div>
+    <button type="button" id="${i}" class="btn btn-danger">Delete</button>
   </div>
  </div>
  `
@@ -295,6 +309,7 @@ const cardBuilder = (petArray) => {
     <div class="dog-tag">
     <p class='card-text' id="animalType"> Type: ${card.type}</p>
     </div>
+    <button type="button" id="${i}" class="btn btn-danger">Delete</button>
   </div>
  </div>
  `
@@ -310,6 +325,7 @@ const cardBuilder = (petArray) => {
     <div class="dino-tag">
     <p class='card-text' id="animalType"> Type: ${card.type}</p>
     </div>
+    <button type="button" id="${i}" class="btn btn-danger">Delete</button>
   </div>
  </div>
  `
@@ -320,18 +336,13 @@ renderToDom("#pet-cards", domString)
 
 }
 
-const whatAreMyCards = (array) => {
-  const myCards = document.querySelector(".card").innerHTML;
-  array.forEach((card) => {
-    console.log(myCards)
-  })
-};
 
 const init = () => {
 buttons();
 buttonEvents();
 cardBuilder(pets);
-whatAreMyCards(pets);
+deleteButton();
+deletePets();
 }
 
 init();
