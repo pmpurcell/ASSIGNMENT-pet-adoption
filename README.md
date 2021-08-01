@@ -1,6 +1,6 @@
 # Fantastic Pets!
 
-**### About:**
+### About
 A single page app where users can look at different pets, and sort them as animal types.
 
 **The User:** 
