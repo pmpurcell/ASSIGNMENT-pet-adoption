@@ -3,6 +3,14 @@
 ### About
 A single page app where users can look at different pets, and sort them as animal types.
 
+#### Access
+
+[View App](https://pmp-fantastic-pets.netlify.app/)
+
+git clone git@github.com:pmpurcell/ASSIGNMENT-pet-adoption.git
+
+cd ASSIGNMENT-pet-adoption
+
 ### The User 
 This application is ideal for someone looking for a new pet.
 The application is an easy way for the user to browse available pets, see their pictures, and learn about the pets best qualities.
